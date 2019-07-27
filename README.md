@@ -14,8 +14,8 @@ server
 |  |- routes
 |    |- index.js
 |  |- app.js
-|- package.json
-|- package-lock.json
+|  |- package.json
+|  |- package-lock.json
 |- README.md
 ```
 
