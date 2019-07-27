@@ -45,6 +45,5 @@ server
 
 ## Markdown cheatsheet:
 
-* [markdown] (https://bit.ly/1dQOfRK) 
 * [github](https://help.github.com/en/articles/basic-writing-and-formatting-syntax)
 * [stackedit](https://stackedit.io/) 
