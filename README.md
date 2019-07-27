@@ -1,1 +1,1 @@
-# React360
+# MERN app
