@@ -1,4 +1,4 @@
-const mongoose =require('mongoose');
+var mongoose =require('mongoose');
 
 const userSchema=new mongoose.Schema({
     username:{
@@ -28,4 +28,4 @@ userSchema.pre('remove', function(next){
 
 const User=mongoose.model('User', userSchema);
 
-module.export= User;
+module.exports= User;

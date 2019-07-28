@@ -1,22 +1,20 @@
-//express app
+
 //connects database asynchronously 
 const express=require("express")
-//other imports
 const mongoose =require('mongoose');
+//const cors=require('cors');
+
 // import models,{connectDb} from './models';
 
 const models = require("./models/index")
-//const {connectDb}=require("./models/index")
 const app=express();
+const PORT=8080;
 
-DATABASE_URL='mongodb://localhost:27017/myapp'
-mongoose.connect(DATABASE_URL,{useNewUrlParser: true});
+var DATABASE_URL="mongodb://localhost:27017/myapp"
 
-const connectDb=mongoose.connection;
-
-connectDb.on('error', function(err){
-    console.log(error("Mongoose default connection has occured "+err+" error"));
-});
+mongoose.set('useCreateIndex', true);
+mongoose.connect(DATABASE_URL,{'useNewUrlParser':true});
+var connectDb=mongoose.connection;
 
 app.use(async(req,res,next)=>{
     req.context={
@@ -37,10 +35,13 @@ connectDb.then(async()=>{
             models.User.deleteMany({}),
             models.Message.deleteMany({}),
         ]);
+        console.log("checking ")
         createUsersWithMessages();
+        console.log("created user")
+
     }
-    app.listen(process.env.PORT,()=>
-        console.log(`App listening on port ${process.env.PORT}`),
+    app.listen(PORT,()=>
+        console.log(`App listening on port ${PORT}`),
         );
 });
 
@@ -64,3 +65,7 @@ const createUsersWithMessages=async()=>{
     await message2.save();
     await firstUser.save();
 }
+
+connectDb.on('error', function(err){
+    console.log(error("Mongoose default connection has occured "+err+" error"));
+});
