@@ -27,9 +27,13 @@ server
 
 1. mkdir and cd 
 
-2.  Create package.json file
+2.  Create package.json file (initialize a new npm project )
   
         npm init
+    
+    or to initialize with default 
+                              
+        npm init -y
 
 3. [mongoose](https://mongoosejs.com/) as ORM: provides API to work with MongoDB
         
